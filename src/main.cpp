@@ -20,7 +20,7 @@
         tcgetattr( STDIN_FILENO, &oldt );
         newt = oldt;
 
-        newt.c_lflag &= ~( ICANON | ECHO );
+        newt.c_lflag = newt.c_lflag & static_cast<unsigned int>(~(ICANON | ECHO));
         tcsetattr( STDIN_FILENO, TCSANOW, &newt );
 
         ch = getchar();
@@ -170,7 +170,7 @@ int main(int argc, char * argv[]) {
 
         do {
             std::cout << "\nDo you want to set names for strings[y/n] : ";
-            ans = _getch();
+            ans = static_cast<char>(_getch());
 
             if(ans == 'n') {
                 ask_name = false;
@@ -220,8 +220,8 @@ int main(int argc, char * argv[]) {
             tmp = "char " + *name_iter + "[] = {";
 
             for(std::size_t j{0}; j < (*iter).length(); j++) {
-                if(j != ((*iter).length() - 1)) tmp += std::to_string((int)(*iter).at(j)) + ", ";
-                else tmp += std::to_string((int)(*iter).at(j)) + ", 0 };";
+                if(j != ((*iter).length() - 1)) tmp += std::to_string(static_cast<int>((*iter).at(j))) + ", ";
+                else tmp += std::to_string(static_cast<int>((*iter).at(j))) + ", 0 };";
             }
         }
 
