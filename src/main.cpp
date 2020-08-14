@@ -31,12 +31,12 @@
 #endif
 
 int main(int argc, char * argv[]) {
-    std::cout << "                         _             \t\tVersion : " << STR_VERSION << "\n";
-    std::cout << "    ___ _ __ _   _ _ __ | |_ ___  _ __ \n";
-    std::cout << "   / __| '__| | | | '_ \\| __/ _ \\| '__|\t\tDeveloper : KonstantIMP (Mikhedov Konstantin)\n";
-    std::cout << "  | (__| |  | |_| | |_) | || (_) | |   \t\tFeedback email : mihedovkos@gmail.com\n";
-    std::cout << "   \\___|_|   \\__, | .__/ \\__\\___/|_|   \n";
-    std::cout << "             |___/|_|                  \t\tUse \"cryptor -h\" to view help message\n\n";
+    std::cout << "                                    _             \tVersion : " << str_ver << "\n";
+    std::cout << "   ||  ||      ___ _ __ _   _ _ __ | |_ ___  _ __ \n";
+    std::cout << "   \\\\()//    / __| '__| | | | '_ \\| __/ _ \\| '__|\tDeveloper : KonstantIMP\n";
+    std::cout << "  //(__)\\\\  | (__| |  | |_| | |_) | || (_) | |   \tFeedback email : mihedovkos@gmail.com\n";
+    std::cout << "  ||    ||   \\___|_|   \\__, | .__/ \\__\\___/|_|   \n";
+    std::cout << "                       |___/|_|                  \tUse \"cryptor -h\" to view help message\n\n";
 
     if(argc == 1) {
         return 0;
@@ -54,7 +54,7 @@ int main(int argc, char * argv[]) {
 
     for(int i{1}; i < argc; i++) {
         if(strcmp(argv[i], "-h") == 0) {
-            std::cout << "CRYPTOR : version " << STR_VERSION << "\n\n";
+            std::cout << "CRYPTOR : version " << str_ver << "\n\n";
 
             std::cout << "Cryptor is a simple programm, to encrypt & decrypt text messages\n\n";
 
@@ -79,7 +79,7 @@ int main(int argc, char * argv[]) {
             return 0;
         }
         if(strcmp(argv[i], "-v") == 0) {
-            std::cout << "Version is : " << STR_VERSION << '\n';
+            std::cout << "Version is : " << str_ver << '\n';
             return 0;
         }
         if(strcmp(argv[i], "-d") == 0) {
@@ -203,7 +203,7 @@ int main(int argc, char * argv[]) {
 
     if(debug) std::clog << "[DEBUG] Starting crypt\n\n";
 
-    for(auto & iter : c_word) iter = crypt(iter, debug);
+    for(auto & iter : c_word) iter = cryptor::crypt(iter, debug);
 
     if(debug) std::clog << "[DEBUG] Crypt result\n";
 

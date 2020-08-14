@@ -1,10 +1,14 @@
 #ifndef DEFINES_HPP
 #define DEFINES_HPP
 
-#define STR_VERSION "0.2.2 (BUILD 2)"
+#include <cstddef>
+#include <string>
 
-#define MAJOR_VER 0
-#define MINOR_VER 2
-#define BUILD_NUM 2
+const std::size_t major_ver = 1;
+const std::size_t minor_ver = 2;
+const std::size_t build_ver = 1;
+
+const std::string str_ver = std::to_string(major_ver) + '.' + std::to_string(minor_ver) +
+        '.' + std::to_string(build_ver) + " (build " + std::to_string(build_ver) + ')';
 
 #endif // DEFINES_HPP

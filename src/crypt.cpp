@@ -1,8 +1,8 @@
 #include "../include/crypt.hpp"
 
-std::string crypt(const std::string & str, const bool & debug_out) {
+std::string cryptor::crypt(const std::string & str, const bool & debug_out) {
     std::string result = "";
-	
+
     if(debug_out) std::clog << "[DEBUG] Crypt start\n\n";
 
     if(debug_out) std::clog << "[DEBUG] Encrypting string has " << str.length() << " symbol(s)\n\n";
@@ -27,6 +27,6 @@ std::string crypt(const std::string & str, const bool & debug_out) {
     }
 
     if(debug_out) std::clog << "\n[DEBUG] Result string is " << result << "\n\n";
-	
-	return result;
+
+    return result;
 }
